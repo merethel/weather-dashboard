@@ -10,6 +10,7 @@ export async function fetchCurrentWeather() {
       "relative_humidity_2m",
       "wind_speed_10m",
       "weather_code",
+      "is_day",
     ].join(","),
     timezone: "Europe/Copenhagen",
   });
