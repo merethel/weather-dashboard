@@ -53,13 +53,6 @@ export function CurrentWeatherCard({ weather }: Props) {
             {Math.round(weather.windSpeed)} {WEATHER_UNITS.WIND_SPEED}
           </strong>
         </div>
-
-        <div className="weather-detail-card weather-detail-card-wide">
-          <span className="weather-detail-label">
-            {WEATHER_MESSAGES.UPDATED}
-          </span>
-          <strong>{formatDateTime(weather.time)}</strong>
-        </div>
       </div>
     </section>
   );
