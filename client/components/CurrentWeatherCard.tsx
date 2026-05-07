@@ -1,5 +1,6 @@
 import { WEATHER_MESSAGES } from "@/messages/weather.messages";
 import type { CurrentWeather } from "@/types/weather.type";
+import { formatDateTime } from "@/utils/date.utils";
 
 type Props = {
   weather: CurrentWeather;
@@ -28,7 +29,7 @@ export function CurrentWeatherCard({ weather }: Props) {
       <div className="mt-4 space-y-1 text-sm">
         <p>{WEATHER_MESSAGES.HUMIDITY}: {weather.humidity}%</p>
         <p>{WEATHER_MESSAGES.WIND}: {weather.windSpeed} km/h</p>
-        <p>{WEATHER_MESSAGES.UPDATED}: {weather.time}</p>
+        <p>{WEATHER_MESSAGES.UPDATED}: {formatDateTime(weather.time)}</p>
       </div>
     </section>
   );
