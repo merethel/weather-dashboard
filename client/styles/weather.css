@@ -2,29 +2,24 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: top;
-  padding: 24px;
+  align-items: flex-start;
+  padding: clamp(12px, 3vw, 32px);
 }
 
 .weather-container {
-  width: 100%;
-  max-width: 1600px;
-
+  width: min(100%, 1600px);
   display: grid;
-  grid-template-columns: minmax(300px, 1fr) 3fr;
-  gap: 24px;
-
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 3fr);
+  gap: clamp(14px, 2vw, 24px);
   align-items: start;
 }
-
 
 .weather-card {
   position: relative;
   overflow: hidden;
-  border-radius: 32px;
-  padding: 28px;
+  border-radius: clamp(20px, 3vw, 32px);
+  padding: clamp(16px, 3vw, 28px);
   color: var(--text-primary);
-    /*background: var(--card-gradient);   ---actually prettier without imo*/
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
@@ -46,6 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 12px;
 }
 
 .weather-eyebrow {
@@ -59,38 +55,38 @@
 
 .weather-location {
   margin: 0;
-  font-size: 1.7rem;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
   font-weight: 800;
 }
 
-
 .weather-icon {
-  width: 86px;
-  height: 86px;
+  width: clamp(58px, 9vw, 86px);
+  height: clamp(58px, 9vw, 86px);
+  flex-shrink: 0;
 }
 
 .weather-main {
   position: relative;
   z-index: 1;
-  margin-top: 34px;
+  margin-top: clamp(24px, 4vw, 34px);
 }
 
 .weather-temperature {
   margin: 0;
-  font-size: clamp(4.5rem, 16vw, 7rem);
+  font-size: clamp(3.6rem, 16vw, 7rem);
   line-height: 0.9;
   font-weight: 900;
 }
 
 .weather-temperature span {
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
   vertical-align: top;
   margin-left: 6px;
 }
 
 .weather-condition {
   margin-top: 12px;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 600;
 }
 
@@ -98,9 +94,9 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-  margin-top: 32px;
+  margin-top: clamp(24px, 4vw, 32px);
 }
 
 .weather-detail-card {
@@ -126,10 +122,8 @@
 
 /* --------toggle button-------- */
 
-/*this miiiiight be some cool ai work :)) */
-
 .theme-toggle {
-  margin: 24;
+  margin: 24px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -167,6 +161,7 @@
   border-radius: 999px;
   background: linear-gradient(135deg, #60a5fa, #a78bfa);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.22);
+  flex-shrink: 0;
 }
 
 .theme-toggle-thumb {
@@ -199,11 +194,11 @@
 }
 
 /* --------forecast-------- */
+
 .forecast-panel {
-  border-radius: 32px;
-  padding: 24px;
-  padding-top: 28px;
-  /*background: var(--card-gradient);   ---actually prettier without imo*/
+  border-radius: clamp(20px, 3vw, 32px);
+  padding: clamp(16px, 3vw, 24px);
+  padding-top: clamp(20px, 3vw, 28px);
   box-shadow: var(--shadow);
   color: var(--text-primary);
   overflow: hidden;
@@ -215,7 +210,7 @@
 
 .forecast-panel-header h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
 }
 
 .forecast-strip {
@@ -224,6 +219,7 @@
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 4px;
+  scrollbar-width: thin;
 }
 
 .forecast-day-card {
@@ -290,8 +286,60 @@
   color: white;
 }
 
-@media (max-width: 900px) {
+/* --------responsive-------- */
+
+@media (max-width: 1000px) {
+  .weather-container {
+    grid-template-columns: 1fr;
+  }
+
   .forecast-strip {
-    grid-template-columns: repeat(7, 105px);
+    grid-template-columns: repeat(7, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .weather-page {
+    padding: 12px;
+  }
+
+  .weather-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-detail-card-wide {
+    grid-column: span 1;
+  }
+
+  .forecast-strip {
+    grid-template-columns: repeat(7, 118px);
+  }
+
+  .forecast-day-card {
+    min-height: 230px;
+  }
+
+  .theme-toggle {
+    margin: 12px;
+  }
+
+  .theme-toggle-text {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .weather-card,
+  .forecast-panel {
+    padding: 14px;
+  }
+
+  .forecast-strip {
+    grid-template-columns: repeat(7, 104px);
+  }
+
+  .forecast-big-icon {
+    width: 60px;
+    height: 60px;
   }
 }
