@@ -1,4 +1,4 @@
-import { WEATHER_MESSAGES } from "@/messages/weather.messages";
+import { WEATHER_MESSAGES } from "@/constants/messages/weather.messages";
 import type { CurrentWeather } from "@/types/weather.type";
 import { formatDateTime } from "@/utils/date.utils";
 
