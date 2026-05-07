@@ -5,4 +5,6 @@ export const WEATHER_MESSAGES = {
   WIND: "Wind",
   UPDATED: "Updated",
   CURRENT_WEATHER: "Current weather",
+  FORECAST: "Forecast",
+  NEXT_DAYS: "Next {days} days",
 };

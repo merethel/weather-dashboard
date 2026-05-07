@@ -10,3 +10,9 @@ export function formatDateTime(dateString: string): string {
 
   return `${hours}:${minutes} ${day}-${month}-${year}`;
 }
+
+export function formatForecastDay(dateString: string): string {
+  return new Date(dateString)
+    .toLocaleDateString("en-US", { weekday: "short" })
+    .toUpperCase();
+}

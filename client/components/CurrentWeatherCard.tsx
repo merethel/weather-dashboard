@@ -1,13 +1,14 @@
-import { WEATHER_UNITS } from "@/constants/errors/units/weather.units";
+import { WEATHER_UNITS } from "@/constants/units/weather.units";
 import { WEATHER_MESSAGES } from "@/constants/messages/weather.messages";
 import type { CurrentWeather } from "@/types/weather.type";
 import { formatDateTime } from "@/utils/date.utils";
 
 type Props = {
   weather: CurrentWeather;
+  location: string;
 };
 
-export function CurrentWeatherCard({ weather }: Props) {
+export function CurrentWeatherCard({ weather, location }: Props) {
   return (
     <section className="weather-card">
       <div className="weather-card-glow" />
@@ -15,7 +16,7 @@ export function CurrentWeatherCard({ weather }: Props) {
       <div className="weather-card-header">
         <div>
           <p className="weather-eyebrow">{WEATHER_MESSAGES.CURRENT_WEATHER}</p>
-          <h2 className="weather-location">{weather.location}</h2>
+          <h2 className="weather-location">{location}</h2>
         </div>
 
         {weather.condition.imageUrl && (
