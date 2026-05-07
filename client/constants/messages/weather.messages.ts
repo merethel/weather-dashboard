@@ -4,4 +4,5 @@ export const WEATHER_MESSAGES = {
   HUMIDITY: "Humidity",
   WIND: "Wind",
   UPDATED: "Updated",
+  CURRENT_WEATHER: "Current weather",
 };

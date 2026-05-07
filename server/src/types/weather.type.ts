@@ -8,5 +8,6 @@ export type CurrentWeather = {
   humidity: number;
   windSpeed: number;
   time: string;
+  location: string;
   condition: WeatherCodeCondition;
 };

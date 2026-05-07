@@ -3,5 +3,6 @@ import { mapOpenMeteoToCurrentWeather } from "../mappers/weather.mapper.js";
 
 export async function getCurrentWeather() {
   const rawWeather = await fetchCurrentWeather();
+
   return mapOpenMeteoToCurrentWeather(rawWeather);
 }

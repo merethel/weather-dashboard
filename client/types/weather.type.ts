@@ -1,4 +1,5 @@
 export type CurrentWeather = {
+  location: string;
   temperature: number;
   humidity: number;
   windSpeed: number;

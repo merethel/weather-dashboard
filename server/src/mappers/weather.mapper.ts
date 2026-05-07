@@ -1,5 +1,6 @@
 import type { CurrentWeather } from "../types/weather.type";
 import { WEATHER_CODES } from "../config/weather.codes";
+import { DEFAULT_LOCATION } from "../config/weather.config";
 
 export function mapOpenMeteoToCurrentWeather(data: any): CurrentWeather {
   const weatherCode = String(data.current.weather_code);
@@ -11,6 +12,7 @@ export function mapOpenMeteoToCurrentWeather(data: any): CurrentWeather {
   };
 
   return {
+    location: DEFAULT_LOCATION.name,
     temperature: data.current.temperature_2m,
     humidity: data.current.relative_humidity_2m,
     windSpeed: data.current.wind_speed_10m,

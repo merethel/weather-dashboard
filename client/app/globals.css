@@ -1,25 +1,41 @@
 :root {
-  --background: #f5f7fa;
+  --background: radial-gradient(circle at top, #dbeafe 0%, #7f97e5 35%, #278bef 100%);
   --foreground: #111827;
-  --card: #ffffff;
-  --border: #e5e7eb;
+
+  --card-gradient:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.4), transparent 28%),
+    linear-gradient(135deg, #5b8def 0%, #7c5cff 45%, #332f7d 100%);
+
+  --glass: rgba(255, 255, 255, 0.16);
+  --glass-strong: rgba(255, 255, 255, 0.22);
+
+  --shadow:
+    0 24px 60px rgba(59, 79, 190, 0.25);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.75);
 }
 
 [data-theme="dark"] {
-  --background: #111827;
-  --foreground: #f9fafb;
-  --card: #1f2937;
-  --border: #374151;
+  --background: #09090f;
+  --foreground: #f3f4f6;
+
+  --card-gradient:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(135deg, #111827 0%, #1e293b 45%, #312e81 100%);
+
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.1);
+
+  --shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
 }
 
 body {
-  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, sans-serif;
-}
-
-.weather-card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  font-family: "Inter", sans-serif;
 }
