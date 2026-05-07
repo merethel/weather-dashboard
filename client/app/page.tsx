@@ -31,8 +31,6 @@ export default function Home() {
     loadWeather();
   }, []);
 
-  console.log("Weather data:", weather?.assessment);
-
   return (
     <main>
       <ThemeToggle />
