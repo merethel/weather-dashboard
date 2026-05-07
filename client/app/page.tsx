@@ -14,7 +14,7 @@ export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [days, setDays] = useState<number>(7);
+  const [days, setDays] = useState<number>(7); // able to add for user to select days
 
   useEffect(() => {
     async function loadWeather() {

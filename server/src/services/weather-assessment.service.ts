@@ -1,5 +1,5 @@
-import OpenAI from "openai";
 import type { WeatherData } from "../types/weather.type.js";
+import { generateText } from "../clients/weather-assessment.client.js";
 
 export async function getWeatherAssessment(
   weather: WeatherData,
@@ -9,27 +9,20 @@ export async function getWeatherAssessment(
   }
 
   try {
-    const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-    });
+    const prompt = `
+      You are a funny weather assistant.
+      Give a short, playful weather assessment in max 1 sentence.
+      It should have a punchline.
 
-    const response = await client.responses.create({
-      model: "gpt-5.4-mini",
-      input: `
-        You are a funny weather assistant.
-        Give a short, playful weather assessment in max 1 sentences.
-        It should have a punchline.
+      Weather:
+      Location: ${weather.location}
+      Temperature: ${weather.current.temperature}°C
+      Condition: ${weather.current.condition.description}
+      Humidity: ${weather.current.humidity}%
+      Wind: ${weather.current.windSpeed} km/h
+    `;
 
-        Weather:
-        Location: ${weather.location}
-        Temperature: ${weather.current.temperature}°C
-        Condition: ${weather.current.condition.description}
-        Humidity: ${weather.current.humidity}%
-        Wind: ${weather.current.windSpeed} km/h
-      `,
-    });
-
-    return response.output_text;
+    return await generateText(prompt);
   } catch {
     return getFallbackAssessment(weather);
   }
