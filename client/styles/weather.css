@@ -1,3 +1,11 @@
+.weather-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
 .weather-card {
   position: relative;
   overflow: hidden;
@@ -72,7 +80,6 @@
   margin-top: 12px;
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-secondary);
 }
 
 .weather-details-grid {

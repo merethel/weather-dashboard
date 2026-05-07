@@ -6,7 +6,6 @@ import { getCurrentWeather } from "@/services/weather.service";
 import { CurrentWeatherCard } from "@/components/CurrentWeatherCard";
 import { WeatherLoading } from "@/components/WeatherLoading";
 import { WeatherError } from "@/components/WeatherError";
-import { WEATHER_MESSAGES } from "@/constants/messages/weather.messages";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import "@/styles/weather.css";
 
@@ -37,9 +36,6 @@ export default function Home() {
     <main className="weather-page">
       <div className="weather-container">
         <ThemeToggle />
-
-        <h1 className="weather-title">Local Weather Dashboard</h1>
-
         <CurrentWeatherCard weather={weather} />
       </div>
     </main>
