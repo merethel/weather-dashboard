@@ -6,13 +6,25 @@
   padding: 24px;
 }
 
+.weather-container {
+  width: 100%;
+  max-width: 1600px;
+
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 3fr;
+  gap: 24px;
+
+  align-items: start;
+}
+
+
 .weather-card {
   position: relative;
   overflow: hidden;
   border-radius: 32px;
   padding: 28px;
   color: var(--text-primary);
-  background: var(--card-gradient);
+    /*background: var(--card-gradient);   ---actually prettier without imo*/
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
@@ -117,7 +129,7 @@
 /*this miiiiight be some cool ai work :)) */
 
 .theme-toggle {
-  margin: 8;
+  margin: 24;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -188,10 +200,10 @@
 
 /* --------forecast-------- */
 .forecast-panel {
-  margin-top: 28px;
   border-radius: 32px;
   padding: 24px;
-  background: var(--card-gradient);
+  padding-top: 28px;
+  /*background: var(--card-gradient);   ---actually prettier without imo*/
   box-shadow: var(--shadow);
   color: var(--text-primary);
   overflow: hidden;
@@ -215,7 +227,7 @@
 }
 
 .forecast-day-card {
-  min-height: 230px;
+  min-height: 268px;
   border-radius: 22px;
   padding: 14px 10px 10px;
   display: flex;
