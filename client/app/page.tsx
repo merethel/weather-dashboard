@@ -7,6 +7,8 @@ import { CurrentWeatherCard } from "@/components/CurrentWeatherCard";
 import { WeatherLoading } from "@/components/WeatherLoading";
 import { WeatherError } from "@/components/WeatherError";
 import { WEATHER_MESSAGES } from "@/constants/messages/weather.messages";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import "@/styles/weather.css";
 
 export default function Home() {
   const [weather, setWeather] = useState<CurrentWeather | null>(null);
@@ -32,9 +34,14 @@ export default function Home() {
   if (hasError || !weather) return <WeatherError />;
 
   return (
-    <main className="mx-auto max-w-xl p-8">
-      <h1 className="mb-6 text-3xl font-bold">{WEATHER_MESSAGES.TITLE}</h1>
-      <CurrentWeatherCard weather={weather} />
+    <main className="weather-page">
+      <div className="weather-container">
+        <ThemeToggle />
+
+        <h1 className="weather-title">Local Weather Dashboard</h1>
+
+        <CurrentWeatherCard weather={weather} />
+      </div>
     </main>
   );
 }
