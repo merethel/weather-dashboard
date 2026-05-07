@@ -1,5 +1,5 @@
-import { DEFAULT_LOCATION } from "../constants/weather.constants";
-import { WEATHER_API_BASE_URL } from "../constants/weather.constants";
+import { DEFAULT_LOCATION } from "../config/weather.config";
+import { WEATHER_API_BASE_URL } from "../config/weather.config";
 
 export async function fetchCurrentWeather() {
   const params = new URLSearchParams({
