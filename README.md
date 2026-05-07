@@ -120,6 +120,7 @@ http://localhost:3001/api/weather
 - Location search could be fun, using current location, or maybe using a map
 - Mock data could have been the latest real fetched data, that could be stored locally, so it represents a more accurate forecast (if user uses app between small periods)
 - timeout on loading
+- Focus on accessibility, i haven't though alot about this before i was done - but can be added with eg. aria-label when toggling dark/light mode, or adding alt texts to images
 
 # Total Time Spent
 
