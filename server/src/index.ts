@@ -1,18 +1,13 @@
 import express from "express";
 import cors from "cors";
+import weatherRoutes from "./routes/weather.route.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/weather", (_req, res) => {
-  res.json({
-    city: "Aarhus",
-    temperature: 12,
-    condition: "Cloudy",
-  });
-});
+app.use("/api/weather", weatherRoutes);
 
 const PORT = 3001;
 
