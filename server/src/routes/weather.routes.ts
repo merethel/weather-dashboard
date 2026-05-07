@@ -1,19 +1,23 @@
 import { Router } from "express";
-import { getCurrentWeather } from "../services/weather.service.js";
+import { getWeatherData } from "../services/weather.service.js";
 import { WEATHER_ERROR_CODES } from "../errors/weather.errors.js";
 
 const router = Router();
 
-router.get("/current", async (_req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const currentWeather = await getCurrentWeather();
+    const days = req.query.days ? Number(req.query.days) : undefined;
 
-    res.status(200).json(currentWeather);
+    const weatherData = await getWeatherData({
+      days,
+    });
+
+    res.status(200).json(weatherData);
   } catch {
     res.status(500).json({
       error: {
         code: WEATHER_ERROR_CODES.FETCH_FAILED,
-        message: "Could not fetch current weather",
+        message: "Could not fetch weather data",
       },
     });
   }

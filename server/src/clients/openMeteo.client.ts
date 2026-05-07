@@ -1,7 +1,7 @@
 import { DEFAULT_LOCATION } from "../config/weather.config";
 import { WEATHER_API_BASE_URL } from "../config/weather.config";
 
-export async function fetchCurrentWeather() {
+export async function fetchWeatherData({ days }: { days: number }) {
   const params = new URLSearchParams({
     latitude: String(DEFAULT_LOCATION.latitude),
     longitude: String(DEFAULT_LOCATION.longitude),
@@ -12,6 +12,10 @@ export async function fetchCurrentWeather() {
       "weather_code",
       "is_day",
     ].join(","),
+    daily: ["weather_code", "temperature_2m_max", "temperature_2m_min"].join(
+      ",",
+    ),
+    forecast_days: String(days),
     timezone: "Europe/Copenhagen",
   });
 
