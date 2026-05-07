@@ -39,12 +39,11 @@ export default function Home() {
           <WeatherLoading />
         </div>
       )}
-      {hasError ||
-        (!weather && (
-          <div className="weather-page">
-            <WeatherError />
-          </div>
-        ))}
+      {(hasError || (!weather && !isLoading)) && (
+        <div className="weather-page">
+          <WeatherError />
+        </div>
+      )}
       <div className="weather-page">
         {weather && !isLoading && !hasError && (
           <div className="weather-container">
