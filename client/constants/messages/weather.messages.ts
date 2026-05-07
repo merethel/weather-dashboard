@@ -7,4 +7,5 @@ export const WEATHER_MESSAGES = {
   CURRENT_WEATHER: "Current weather",
   FORECAST: "Forecast",
   NEXT_DAYS: "Next {days} days",
+  FETCHING_WEATHER_DATA: "Fetching weather data, please wait...",
 };

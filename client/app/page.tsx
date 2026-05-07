@@ -31,19 +31,30 @@ export default function Home() {
     loadWeather();
   }, []);
 
-  if (isLoading) return <WeatherLoading />;
-  if (hasError || !weather) return <WeatherError />;
   return (
     <main>
       <ThemeToggle />
-      <div className="weather-page">
-        <div className="weather-container">
-          <CurrentWeatherCard
-            weather={weather.current}
-            location={weather.location}
-          />
-          <WeatherForecast forecast={weather.forecast} />
+      {isLoading && (
+        <div className="weather-page">
+          <WeatherLoading />
         </div>
+      )}
+      {hasError ||
+        (!weather && (
+          <div className="weather-page">
+            <WeatherError />
+          </div>
+        ))}
+      <div className="weather-page">
+        {weather && !isLoading && !hasError && (
+          <div className="weather-container">
+            <CurrentWeatherCard
+              weather={weather.current}
+              location={weather.location}
+            />
+            <WeatherForecast forecast={weather.forecast} />
+          </div>
+        )}
       </div>
     </main>
   );
