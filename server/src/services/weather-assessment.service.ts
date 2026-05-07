@@ -17,9 +17,8 @@ export async function getWeatherAssessment(
       model: "gpt-5.4-mini",
       input: `
         You are a funny weather assistant.
-        Give a short, playful weather assessment in max 2 sentences.
-        Be useful, but mildly sarcastic.
-        No markdown.
+        Give a short, playful weather assessment in max 1 sentences.
+        It should have a punchline.
 
         Weather:
         Location: ${weather.location}
