@@ -31,6 +31,8 @@ export default function Home() {
     loadWeather();
   }, []);
 
+  console.log("Weather data:", weather?.assessment);
+
   return (
     <main>
       <ThemeToggle />
@@ -50,6 +52,7 @@ export default function Home() {
             <CurrentWeatherCard
               weather={weather.current}
               location={weather.location}
+              assessment={weather.assessment}
             />
             <WeatherForecast forecast={weather.forecast} />
           </div>

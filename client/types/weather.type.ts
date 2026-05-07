@@ -26,4 +26,5 @@ export type WeatherData = {
   location: string;
   current: CurrentWeather;
   forecast: WeatherForecast;
+  assessment: string;
 };

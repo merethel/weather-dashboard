@@ -6,9 +6,10 @@ import { formatDateTime } from "@/utils/date.utils";
 type Props = {
   weather: CurrentWeather;
   location: string;
+  assessment?: string;
 };
 
-export function CurrentWeatherCard({ weather, location }: Props) {
+export function CurrentWeatherCard({ weather, location, assessment }: Props) {
   return (
     <section className="weather-card">
       <div className="weather-card-glow" />
@@ -55,6 +56,12 @@ export function CurrentWeatherCard({ weather, location }: Props) {
           </strong>
         </div>
       </div>
+
+      {assessment && (
+        <div className="weather-assessment">
+          <p>{assessment}</p>
+        </div>
+      )}
     </section>
   );
 }

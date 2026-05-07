@@ -1,10 +1,6 @@
 import OpenAI from "openai";
 import type { WeatherData } from "../types/weather.type.js";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export async function getWeatherAssessment(
   weather: WeatherData,
 ): Promise<string> {
@@ -13,6 +9,10 @@ export async function getWeatherAssessment(
   }
 
   try {
+    const client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
     const response = await client.responses.create({
       model: "gpt-5.4-mini",
       input: `
