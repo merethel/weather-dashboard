@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  THEME_STORAGE_KEY,
-  type Theme,
-} from "@/constants/theme.constants";
+import { THEME_STORAGE_KEY, type Theme } from "@/constants/theme.constants";
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -26,8 +23,20 @@ export function ThemeToggle() {
   }
 
   return (
-    <button onClick={toggleTheme}>
-      {theme === "light" ? "Dark mode" : "Light mode"}
+    <button
+      className="theme-toggle"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+    >
+      <span className="theme-toggle-icon">
+        {theme === "light" ? "☀️" : "🌙"}
+      </span>
+      <span className="theme-toggle-text">
+        {theme === "light" ? "Light" : "Dark"}
+      </span>
+      <span className="theme-toggle-track">
+        <span className="theme-toggle-thumb" />
+      </span>
     </button>
   );
 }

@@ -33,10 +33,12 @@ export default function Home() {
   if (hasError || !weather) return <WeatherError />;
 
   return (
-    <main className="weather-page">
-      <div className="weather-container">
-        <ThemeToggle />
-        <CurrentWeatherCard weather={weather} />
+    <main>
+      <ThemeToggle />
+      <div className="weather-page">
+        <div className="weather-container">
+          <CurrentWeatherCard weather={weather} />
+        </div>
       </div>
     </main>
   );
